@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
     public function index() {
-        return view('courses.dashboard');
+        $courses = Course::all();
+        return view('courses.dashboard', ['courses' => $courses]);
     }
 
     public function create() {
@@ -17,10 +19,16 @@ class CourseController extends Controller
 
     public function store(Request $request) {
         $validate = $this->validate($request, [
-            'name' => 'required',
-            'section' => 'required'
+            'course_name' => 'required',
         ]);
+        Course::create([
+            'course_name' => $request->course_name
+        ]);
+        return redirect()->route('course.index');
+    }
 
-        
+    public function show(Course $course)
+    {
+        //
     }
 }

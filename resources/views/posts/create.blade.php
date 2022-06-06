@@ -6,10 +6,10 @@
         <div class="col-10">
             <form id="add-frm" action="" method="POST">
                 <div class="mb-3">
-                    <label for="course_name" class="form-label">Course Name</label>
-                    <input type="text" class="form-control" id="course_name" name="course_name" required>
+                    <label for="description" class="form-label">Deskripsi</label>
+                    <input type="text" class="form-control" id="description" name="description" required>
                 </div>
-                <!-- <input type="hidden" name="ownerId" value="{{ $ownerId }}"/> -->
+                <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}"/>
                 @csrf
                 <button class="btn btn-primary">Submit</button>
             </form>

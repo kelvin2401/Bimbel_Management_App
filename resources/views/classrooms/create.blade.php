@@ -9,7 +9,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <div class="text-left"><a href="{{ route('courses.create') }}" class="btn btn-outline-primary">Buat Kelas Baru</a></div>
+                        <div class="text-left"><a href="{{ route('posts.create',$course_id) }}" class="btn btn-outline-primary">Buat Pengumuman Baru</a></div>
                         </li>
                     </ul>
                     </div>
@@ -23,23 +23,21 @@
 			<table class="table mt-3  text-left">
 				<thead>
 					<tr>
-						<th scope="col">Nama Kelas</th>
+						<th scope="col">Pengumuman</th>
 					</tr>
 				</thead>
 				<tbody>
-					@forelse($courses as $course)
+					@forelse($posts as $post)
 					<tr>
-						<td>{!! $course->course_name !!}</td>
-						<td><a href="{{ route('classroom.create',$course->id) }}"
-							class="btn btn-outline-primary">Akses Kelas</a>
-                            <a href="course/{!! $course->id !!}/edit"
+						<td>{!! $post->description !!}</td>
+						<td><a href="post/{!! $post->id !!}/edit"
 							class="btn btn-outline-primary">Edit</a>
 							<button type="button" class="btn btn-outline-danger ml-1"
-								onClick='showModel({!! $course->id !!})'>Delete</button></td>
+								onClick='showModel({!! $post->id !!})'>Delete</button></td>
 					</tr>
 					@empty
 					<tr>
-						<td colspan="3">No courses found</td>
+						<td colspan="3">No posts found</td>
 					</tr>
 					@endforelse
 				</tbody>
