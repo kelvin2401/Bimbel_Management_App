@@ -11,6 +11,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['course_id','description'];
+    protected $fillable = ['course_id','description','file','filename'];
     
 }

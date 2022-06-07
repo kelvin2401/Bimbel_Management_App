@@ -30,8 +30,10 @@
 					@forelse($posts as $post)
 					<tr>
 						<td>{!! $post->description !!}</td>
+						<td>{!! $post->file !!}</td>
 						<td>
 							<form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+								<a href="{{ route('posts.download',$post->file) }}" class="btn btn-outline-primary"> Download</a>
 								<a href="{{ route('posts.edit',$post->id) }}"
 								class="btn btn-outline-primary">Edit</a>
 								@csrf

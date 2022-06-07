@@ -38,3 +38,4 @@ Route::post('/courses/{course_id}/create', [PostController::class,'store']);
 Route::get('/post-edit/{id}', [PostController::class,'edit'])->name('posts.edit')->middleware('is_admin');
 Route::put('/post-update/{id}', [PostController::class,'update'])->name('posts.update')->middleware('is_admin');
 Route::delete('/post-delete/{id}', [PostController::class,'destroy'])->name('posts.destroy')->middleware('is_admin');
+Route::get('/post-download/{id}', [PostController::class,'download'])->name('posts.download');

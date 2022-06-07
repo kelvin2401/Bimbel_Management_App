@@ -17,6 +17,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->text('description');
+            $table->text('file')->nullable();
+            $table->text('filename')->nullable();
             $table->timestamps();
         });
     }
