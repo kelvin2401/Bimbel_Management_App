@@ -30,11 +30,14 @@
 					@forelse($posts as $post)
 					<tr>
 						<td>{!! $post->description !!}</td>
-						<td><a href="post/{!! $post->id !!}/edit"
-							class="btn btn-outline-primary">Edit</a>
-							<button type="button" class="btn btn-outline-danger ml-1"
-								onClick='showModel({!! $post->id !!})'>Delete</button></td>
-					</tr>
+						<td>
+							<form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+								<a href="{{ route('posts.edit',$post->id) }}"
+								class="btn btn-outline-primary">Edit</a>
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-outline-danger ml-1">Delete</button>
+						</td>
 					@empty
 					<tr>
 						<td colspan="3">No posts found</td>
@@ -45,14 +48,4 @@
 		</div>
 	</div>
 </div>
-<script>
-function showModel(id) {
-	var frmDelete = document.getElementById("delete-frm");
-	frmDelete.action = 'course/'+id;
-	var confirmationModal = document.getElementById("deleteConfirmationModel");
-	confirmationModal.style.display = 'block';
-	confirmationModal.classList.remove('fade');
-	confirmationModal.classList.add('show');
-}
-</script>
 @endsection

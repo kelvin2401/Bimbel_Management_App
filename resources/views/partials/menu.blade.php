@@ -1,3 +1,3 @@
 <li class="nav-item">
-    <a class="nav-link" href="/courses">Kelas</a>
+    <a class="nav-link" href="{{ route('courses.index') }}">Kelas</a>
 </li>

@@ -30,12 +30,16 @@
 					@forelse($courses as $course)
 					<tr>
 						<td>{!! $course->course_name !!}</td>
-						<td><a href="{{ route('classroom.create',$course->id) }}"
-							class="btn btn-outline-primary">Akses Kelas</a>
-                            <a href="course/{!! $course->id !!}/edit"
-							class="btn btn-outline-primary">Edit</a>
-							<button type="button" class="btn btn-outline-danger ml-1"
-								onClick='showModel({!! $course->id !!})'>Delete</button></td>
+						<td>
+							<form action="{{ route('courses.destroy',$course->id) }}" method="POST">
+								<a href="{{ route('classroom.create',$course->id) }}"
+								class="btn btn-outline-primary">Akses Kelas</a>
+								<a href="{{ route('courses.edit',$course->id) }}"
+								class="btn btn-outline-primary">Edit</a>
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-outline-danger ml-1">Delete</button>
+						</td>
 					</tr>
 					@empty
 					<tr>
@@ -47,14 +51,4 @@
 		</div>
 	</div>
 </div>
-<script>
-function showModel(id) {
-	var frmDelete = document.getElementById("delete-frm");
-	frmDelete.action = 'course/'+id;
-	var confirmationModal = document.getElementById("deleteConfirmationModel");
-	confirmationModal.style.display = 'block';
-	confirmationModal.classList.remove('fade');
-	confirmationModal.classList.add('show');
-}
-</script>
 @endsection

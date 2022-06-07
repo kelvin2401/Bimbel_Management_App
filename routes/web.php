@@ -22,14 +22,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/courses', [CourseController::class,'index'])->name('courses.index');
 
-Route::get('/courses', [CourseController::class,'index']);
-Route::get('/courses/create',[CourseController::class,'create'])->name('courses.create');
-Route::post('/courses/create', [CourseController::class,'store']);
-Route::resource('course', 'App\Http\Controllers\CourseController');
+Route::get('/courses-create', [CourseController::class,'create'])->name('courses.create')->middleware('is_admin');
+Route::get('/courses-edit/{id}', [CourseController::class,'edit'])->name('courses.edit')->middleware('is_admin');
+Route::post('/courses-store', [CourseController::class,'store'])->name('courses.store')->middleware('is_admin');
+Route::put('/courses-update/{id}', [CourseController::class,'update'])->name('courses.update')->middleware('is_admin');
+Route::delete('/courses-delete/{id}', [CourseController::class,'destroy'])->name('courses.destroy')->middleware('is_admin');
 
 Route::get('/courses/{course_id}', [ClassroomController::class,'create'])->name('classroom.create');
 
 Route::get('/courses/{course_id}/create', [PostController::class,'create'])->name('posts.create');
 Route::post('/courses/{course_id}/create', [PostController::class,'store']);
-Route::resource('course/{course_id}', 'App\Http\Controllers\PostController');
+
+Route::get('/post-edit/{id}', [PostController::class,'edit'])->name('posts.edit')->middleware('is_admin');
+Route::put('/post-update/{id}', [PostController::class,'update'])->name('posts.update')->middleware('is_admin');
+Route::delete('/post-delete/{id}', [PostController::class,'destroy'])->name('posts.destroy')->middleware('is_admin');

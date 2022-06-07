@@ -10,4 +10,8 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = ['course_name'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

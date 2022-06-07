@@ -22,4 +22,22 @@ class PostController extends Controller
         ]);
         return redirect()->route('classroom.create', $course_id)->with('course_id', $course_id);
     }
+
+    public function edit(Post $post, $id){
+        $post = Post::find($id);
+        return view('posts.edit',compact('post'));
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate(['description' => 'required']);
+        $post = Post::find($id);
+        $post->update($request->all());
+        return redirect()->route('courses.index');
+    }
+
+    public function destroy(Post $post, $id){
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('courses.index');
+    }
 }
