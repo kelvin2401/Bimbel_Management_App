@@ -33,8 +33,8 @@ Route::delete('/courses-delete/{id}', [CourseController::class,'destroy'])->name
 
 Route::get('/courses/{course_id}', [ClassroomController::class,'create'])->name('classroom.create');
 
-Route::get('/courses/{course_id}/create', [PostController::class,'create'])->name('posts.create');
-Route::post('/courses/{course_id}/create', [PostController::class,'store']);
+Route::get('/courses/{course_id}/create', [PostController::class,'create'])->name('posts.create')->middleware('is_admin');
+Route::post('/courses/{course_id}/create', [PostController::class,'store'])->middleware('is_admin');
 
 Route::get('/post-edit/{id}', [PostController::class,'edit'])->name('posts.edit')->middleware('is_admin');
 Route::put('/post-update/{id}', [PostController::class,'update'])->name('posts.update')->middleware('is_admin');
@@ -45,3 +45,7 @@ Route::get('/post-dashboard/{id}', [PostController::class,'index'])->name('posts
 
 Route::get('/assignment-create/{post_id}', [AssignmentController::class,'create'])->name('assignments.create');
 Route::post('/assignment-store/{post_id}', [AssignmentController::class,'store'])->name('assignments.store');
+
+Route::get('tutorial', function(){
+    return View('tutorial');
+});

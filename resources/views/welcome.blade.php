@@ -64,7 +64,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Terdapat banyak tutorial dalam teks, gambar, dan video untuk mempermudah penggunaan aplikasi.
+                                    Terdapat banyak tutorial untuk mempermudah penggunaan aplikasi.
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Anda dapat membuat latihan soal dan mengoreksi jawaban pelajar menggunakan aplikasi ini. Ada juga fitur lainnya seperti kalkulator dan whiteboard untuk membantu kegiatan mengajar di bimbel.
+                                    Anda dapat membagikan materi belajar ke para pelajar. Pelajar dapat mengumpulkan tugas dan pengajar dapat melihat tugas para pelajar.
                                 </div>
                             </div>
                         </div>
