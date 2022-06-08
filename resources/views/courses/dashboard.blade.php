@@ -9,7 +9,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <div class="text-left"><a href="{{ route('courses.create') }}" class="btn btn-outline-primary">Buat Kelas Baru</a></div>
+						@if (auth()->user()->is_admin==1)
+                        	<div class="text-left"><a href="{{ route('courses.create') }}" class="btn btn-outline-primary">Buat Kelas Baru</a></div>
+						@endif
                         </li>
                     </ul>
                     </div>
@@ -34,11 +36,13 @@
 							<form action="{{ route('courses.destroy',$course->id) }}" method="POST">
 								<a href="{{ route('classroom.create',$course->id) }}"
 								class="btn btn-outline-primary">Akses Kelas</a>
-								<a href="{{ route('courses.edit',$course->id) }}"
-								class="btn btn-outline-primary">Edit</a>
-								@csrf
-								@method('DELETE')
-								<button type="submit" class="btn btn-outline-danger ml-1">Delete</button>
+								@if (auth()->user()->is_admin==1)
+									<a href="{{ route('courses.edit',$course->id) }}"
+									class="btn btn-outline-primary">Edit</a>
+									@csrf
+									@method('DELETE')
+									<button type="submit" class="btn btn-outline-danger ml-1">Delete</button>
+								@endif
 						</td>
 					</tr>
 					@empty

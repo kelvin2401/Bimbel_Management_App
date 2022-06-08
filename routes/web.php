@@ -41,7 +41,7 @@ Route::put('/post-update/{id}', [PostController::class,'update'])->name('posts.u
 Route::delete('/post-delete/{id}', [PostController::class,'destroy'])->name('posts.destroy')->middleware('is_admin');
 Route::get('/post-download/{id}', [PostController::class,'download'])->name('posts.download');
 
-Route::get('/post-dashboard/{id}', [PostController::class,'index'])->name('posts.index')->middleware('is_admin');;
+Route::get('/post-dashboard/{id}', [PostController::class,'index'])->name('posts.index')->middleware('is_admin');
 
 Route::get('/assignment-create/{post_id}', [AssignmentController::class,'create'])->name('assignments.create');
 Route::post('/assignment-store/{post_id}', [AssignmentController::class,'store'])->name('assignments.store');
