@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->text('file')->nullable();
             $table->text('filename')->nullable();
+            $table->boolean('is_assignment')->nullable();
             $table->timestamps();
         });
     }

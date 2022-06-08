@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AssignmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,8 @@ Route::get('/post-edit/{id}', [PostController::class,'edit'])->name('posts.edit'
 Route::put('/post-update/{id}', [PostController::class,'update'])->name('posts.update')->middleware('is_admin');
 Route::delete('/post-delete/{id}', [PostController::class,'destroy'])->name('posts.destroy')->middleware('is_admin');
 Route::get('/post-download/{id}', [PostController::class,'download'])->name('posts.download');
+
+Route::get('/post-dashboard/{id}', [PostController::class,'index'])->name('posts.index')->middleware('is_admin');;
+
+Route::get('/assignment-create/{post_id}', [AssignmentController::class,'create'])->name('assignments.create');
+Route::post('/assignment-store/{post_id}', [AssignmentController::class,'store'])->name('assignments.store');

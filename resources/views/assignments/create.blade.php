@@ -4,11 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-10">
-            <form id="add-frm" action="" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="description" class="form-label">Deskripsi</label>
-                    <input type="text" class="form-control" id="description" name="description" required>
-                </div>
+            <form id="add-frm" action="{{ route('assignments.store',$post_id) }}" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="file" class="form-label">File</label>
                     <input type="file" class="form-control" id="file" name="file">
@@ -17,11 +13,7 @@
                     <label for="filename" class="form-label">Nama File</label>
                     <input type="text" class="form-control" id="filename" name="filename">
                 </div>
-                <div class="mb-3">
-                    <label for="is_assignment" class="form-label">Ini Adalah Tugas</label>
-                    <input type="checkbox" id="is_assignment" name="is_assignment" value="0">
-                </div>
-                <input type="hidden" name="course_id" id="course_id" value="{{ $course_id }}"/>
+                <input type="hidden" name="post_id" id="post_id" value="{{ $post_id }}"/>
                 @csrf
                 <button class="btn btn-primary">Submit</button>
             </form>

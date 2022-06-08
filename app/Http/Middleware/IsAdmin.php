@@ -20,6 +20,6 @@ class IsAdmin
             return $next($request);
         }
     
-        return redirect()->route('home')->with("You don't have admin access.");
+        return back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Post;
+use App\Models\Assignment;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\StoreFileRequest;
@@ -26,11 +27,12 @@ class PostController extends Controller
             $file = $request->filename . '.' . $request->file->getClientOriginalExtension();
             $path = $request->file('file')->storeAs('files', $file);
         }
-        Post::create([
+        $post = Post::create([
             'description' => $request->description,
             'course_id' => $request->course_id,
             'file' => $file,
-            'filename' => $request->filename
+            'filename' => $request->filename,
+            'is_assignment' => $request->input('is_assignment', 1)
         ]);
         return redirect()->route('classroom.create', $course_id)->with('course_id', $course_id);
     }
@@ -62,5 +64,11 @@ class PostController extends Controller
 
     public function download($file) {
         return Storage::download('files/' . $file);
+    }
+
+    public function index($id){
+        $post = Post::findOrFail($id);
+        $assignments = Assignment::where('post_id', $id)->get();
+        return view('posts.dashboard', ['post_id' => $id, 'assignments' => $assignments]);
     }
 }
