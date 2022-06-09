@@ -35,10 +35,16 @@
 						<td>{!! $post->file !!}</td>
 						<td>
 							<form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-								<a href="{{ route('assignments.create',$post->id) }}" class="btn btn-outline-primary">Kumpul Tugas</a>
-								<a href="{{ route('posts.download',$post->file) }}" class="btn btn-outline-primary">Download</a>
+								@if ($post->is_assignment==0)
+									<a href="{{ route('assignments.create',$post->id) }}" class="btn btn-outline-primary">Kumpul Tugas</a>
+								@endif
+								@if ($post->file != "")
+									<a href="{{ route('posts.download',$post->file) }}" class="btn btn-outline-primary">Download</a>
+								@endif
 								@if (auth()->user()->is_admin==1)
-									<a href="{{ route('posts.index',$post->id) }}" class="btn btn-outline-primary">Lihat Tugas</a>
+									@if ($post->is_assignment==0)
+										<a href="{{ route('posts.index',$post->id) }}" class="btn btn-outline-primary">Lihat Tugas</a>
+									@endif
 									<a href="{{ route('posts.edit',$post->id) }}" class="btn btn-outline-primary">Edit</a>
 									@csrf
 									@method('DELETE')

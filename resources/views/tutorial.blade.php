@@ -34,13 +34,15 @@
     -Isikan deskripsi pengumuman.<br>
     -Untuk mengunggah materi, tekan tombol &quot;Choose File&quot;, lalu carikan file materi yang ingin diunggah dan klik tombol &quot;Open&quot;.<br>
     -Isikan nama file di bawah label &quot;Nama File&quot; dan tekan tombol &quot;Submit&quot;.<br>
-    -Jika tidak ingin menggunggah materi, Anda hanya perlu mengisi deskripsi pengumuman dan menekan tombol &quot;Submit&quot;.</p>
+    -Jika tidak ingin menggunggah materi, Anda hanya perlu mengisi deskripsi pengumuman dan menekan tombol &quot;Submit&quot;.<br>
+    -Jika ingin memberikan tugas, cek tombol &quot;Ini Adalah Tugas&quot; dan tekan tombol &quot;Submit&quot;.</p> 
     <h3 id="mengubah-atau-mengedit-pengumuman">Mengubah atau Mengedit Pengumuman</h3>
     <p>-Tekan tombol &quot;Edit&quot; pada pengumuman yang ingin diedit.<br>
     -Isikan deskripsi pengumuman.<br>
     -Untuk mengunggah materi, tekan tombol &quot;Choose File&quot;, lalu carikan file materi yang ingin diunggah dan klik tombol &quot;Open&quot;.<br>
     -Isikan nama file di bawah label &quot;Nama File&quot; dan tekan tombol &quot;Submit&quot;.<br>
-    -Jika tidak ingin menggunggah materi, Anda hanya perlu mengisi deskripsi pengumuman dan menekan tombol &quot;Submit&quot;.</p>
+    -Jika tidak ingin menggunggah materi, Anda hanya perlu mengisi deskripsi pengumuman dan menekan tombol &quot;Submit&quot;.<br>
+    -Jika ingin memberikan tugas, cek tombol &quot;Ini Adalah Tugas&quot; dan tekan tombol &quot;Submit&quot;.</p> 
     <h3 id="menghapus-pengumuman">Menghapus Pengumuman</h3>
     <p>-Tekan tombol &quot;Delete&quot; pada pengumuman yang ingin dihapus.</p>
     <h3 id="melihat-pengumpulan-tugas">Melihat Pengumpulan Tugas</h3>
